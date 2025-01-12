@@ -1,0 +1,86 @@
+How to declare a function
+
+Julia gives us a few different ways to write a function. The first requires the function and end keywords.
+
+
+julia> function sayhi(name)
+           println("Hi $name, it's great to see you!")
+       end
+sayhi (generic function with 1 method)
+
+julia> function f(x)
+           x^2
+       end
+f (generic function with 1 method)
+
+
+julia> sayhi("amit")
+Hi amit, it's great to see you!
+
+julia> f(42)
+1764
+
+
+Alternatively, we could have declared either of these functions in a single line
+
+sayhi2(name) = println("Hi $name, t's great to see you")
+
+f2(x) = x^2
+
+
+Finally, We could have declared these as "anonymous" functions
+
+
+sayhi3 = name -> println("Hi $name, it's great to see you!")
+
+f3 = x -> x^2
+
+
+
+Mutating vs non-mutating functions
+
+
+By convention, functions followed by ! alter their contents and functions lacking ! do not.
+
+
+
+Broadcasting
+
+By placing a . between any function name and its argument list, we tell that function to broadcast over the elements of the input objects.
+
+
+Let's look at the difference in behaviour between f() and f.()
+
+
+
+v = [1, 2,3]
+
+
+julia> f(v)
+ERROR: MethodError: no method matching ^(::Vector{Int64}, ::Int64)
+The function `^` exists, but no method is defined for this combination of argument types.
+
+Closest candidates are:
+  ^(::Regex, ::Integer)
+   @ Base regex.jl:895
+  ^(::BigFloat, ::Union{Int16, Int32, Int64, Int8})
+   @ Base mpfr.jl:717
+  ^(::BigFloat, ::Integer)
+   @ Base mpfr.jl:729
+  ...
+
+Stacktrace:
+ [1] literal_pow
+   @ ./intfuncs.jl:389 [inlined]
+ [2] f(x::Vector{Int64})
+   @ Main ./REPL[57]:2
+ [3] top-level scope
+   @ REPL[84]:1
+
+julia> f.(v)
+3-element Vector{Int64}:
+ 1
+ 4
+ 9
+
+This means that, for a vector v, f.(v) is defined, though f(v) is not.

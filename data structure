@@ -1,0 +1,63 @@
+Types of data structures covered:
+
+
+1. Dictionaries
+2. Tuples
+3. Arrays
+
+
+If we have sets of data related to one and another, we may choose to store that data in a Dictionaries.
+
+
+myphonebook = Dict("Amit" => "+919599404844", "Ghar" => "+919470014851", "Test" => "+919599404845")
+
+
+Add another entry:
+myphonebook["aps"] = "9699558480"
+
+
+Delete contact using pop!
+
+pop!(myphonebook, "aps")
+
+
+Unlike tuples and arrays, Dictionaries are not ordered.So, we can't index into them.
+
+myphonebook[1]
+
+
+Tuples
+
+we can create a tuple by enclosing an ordered sequence of elements in ().
+
+myfavbooks =("test1","test2","test3")
+
+myfavbooks[1]
+
+
+its immutable, we can't update it.
+
+
+Arrays,
+
+Order sequence and mutable.
+
+we can create an array by enclosing this sequence of elements in [].
+
+myfriends = ["aps","hanu","mukul","ankit"]
+
+
+
+We can also edit the array by using the push! and pop! functions. push! adds and element to the end of an array and pop! removes the last element of an array.
+push!(myfriends, "ajs")
+
+
+
+numbers = [[1,3,4], [2,3,5],[4,6,7]]
+
+
+Below are exmples of 2D and 3D arrays populated with random values.
+
+rand(4,3)
+
+rand(4,3, 5)

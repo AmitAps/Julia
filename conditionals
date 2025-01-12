@@ -1,0 +1,44 @@
+In julia the syntax
+
+
+if *condition 1*
+  *option 1*
+elseif *condition 2*
+  *option 2*
+else
+  *option 3*
+end
+
+
+
+julia> x = 5
+5
+
+julia> y = 11
+11
+
+julia> if x > y
+           println("$x is greater than $y")
+       elseif x < y
+           println("$x is less than $y")
+       else
+           println("$x is equal to $y")
+       end
+5 is less than 11
+
+
+For this last block, we could instead use the ternary operator with the syntax
+
+a ? b : c
+
+if a
+  b
+else
+  c
+end
+
+
+(x > y) ? x : y
+
+julia> (x > y) ? x : y
+11
