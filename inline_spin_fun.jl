@@ -1,0 +1,1 @@
+spin(str) = str[end:-1:1]
