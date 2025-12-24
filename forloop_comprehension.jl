@@ -1,0 +1,1 @@
+[('α' + locl)^locl for locl in 1:4]
